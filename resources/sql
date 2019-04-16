@@ -1,0 +1,132 @@
+DROP TABLE
+IF
+	EXISTS t_contract;
+DROP TABLE
+IF
+	EXISTS t_customer;
+DROP TABLE
+IF
+	EXISTS t_customerInvoice;
+DROP TABLE
+IF
+	EXISTS t_user;
+CREATE TABLE t_contract (
+	contId VARCHAR ( 64 ),
+	contName VARCHAR ( 64 ),
+	custId LONG,
+	contBeginDate VARCHAR ( 64 ),
+	contEndDate VARCHAR ( 64 ),
+	contMoney DOUBLE,
+	operator VARCHAR ( 64 ),
+	receivableMoney DOUBLE,
+	receivedMoney DOUBLE,
+	payableMoney DOUBLE,
+	paidMoney DOUBLE,
+	balance DOUBLE,
+	payDate VARCHAR ( 64 ),
+	expireDays date,
+	receivableDate VARCHAR ( 64 ),
+	contType VARCHAR ( 64 ),
+	stampTaxRate VARCHAR ( 64 ),
+	stampTax DOUBLE,
+	stampPayDate VARCHAR ( 64 )
+) ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;;
+CREATE TABLE t_customer ( custId VARCHAR ( 64 ), custCompany VARCHAR ( 64 ), custName VARCHAR ( 64 ), custContact VARCHAR ( 64 ) ) ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;;
+CREATE TABLE t_customerInvoice ( invoiceId VARCHAR ( 64 ), contId VARCHAR ( 64 ), receivableMoney DOUBLE, receivedMoney DOUBLE, isInvoice TINYINT ) ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;;
+CREATE TABLE t_user ( uid VARCHAR ( 64 ), username VARCHAR ( 64 ), PASSWORD VARCHAR ( 64 ) ) ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;;
+INSERT INTO t_contract
+VALUES
+	(
+		"1",
+		"1",
+		1,
+		"1",
+		"1",
+		1.0,
+		"1",
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		"1",
+		"2010/10/23",
+		"1",
+		"1",
+		"1",
+		1.0,
+		"1"
+	);
+INSERT INTO t_contract
+VALUES
+	(
+		"2",
+		"2",
+		2,
+		"2",
+		"2",
+		2.0,
+		"2",
+		2.0,
+		2.0,
+		2.0,
+		2.0,
+		2.0,
+		"2",
+		"2010/10/24",
+		"2",
+		"2",
+		"2",
+		2.0,
+		"2"
+	);
+INSERT INTO t_contract
+VALUES
+	(
+		"3",
+		"3",
+		3,
+		"3",
+		"3",
+		3.0,
+		"3",
+		3.0,
+		3.0,
+		3.0,
+		3.0,
+		3.0,
+		"3",
+		"2010-10-25",
+		"3",
+		"3",
+		"3",
+		3.0,
+		"3"
+	);
+INSERT INTO t_customer
+VALUES
+	( "1", "1", "1", "1" );
+INSERT INTO t_customer
+VALUES
+	( "2", "2", "2", "2" );
+INSERT INTO t_customer
+VALUES
+	( "3", "3", "3", "3" );
+INSERT INTO t_customerInvoice
+VALUES
+	( "1", "1", 1.0, 1.0, 1 );
+INSERT INTO t_customerInvoice
+VALUES
+	( "2", "2", 2.0, 2.0, 2 );
+INSERT INTO t_customerInvoice
+VALUES
+	( "3", "3", 3.0, 3.0, 3 );
+INSERT INTO t_user
+VALUES
+	( "1", "1", "1" );
+INSERT INTO t_user
+VALUES
+	( "2", "2", "2" );
+INSERT INTO t_user
+VALUES
+	( "3", "3", "3" );
